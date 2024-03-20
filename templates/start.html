@@ -1,0 +1,36 @@
+{%  extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block content %}
+
+    <form method="post" style="padding-bottom: 70px; padding-top:100px; width:700px; margin: auto; display: flex; flex-direction: row; justify-content: center;">
+        <div style="width:500px;margin-right: 10px;">
+            {{ form.share_name }}
+        </div>
+        {{ form.submit }}
+    </form>
+
+
+    <h3 style="padding-top: 50px;"> SHa {{ share_name }} </h3>
+
+
+<div style="align-items: center; width: 700px; margin: auto; " class="accordion" id="accordionPanelsStayOpenExample">
+    {% for count in range(articles["title"]|length) %}
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading{{ count }}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ count }}" aria-expanded="true" aria-controls="collapse{{ count }}">
+                {{ articles["title"][count] }}
+            </button>
+        </h2>
+        <div id="collapse{{ count }}" class="accordion-collapse collapse" aria-labelledby="heading{{ count }}" data-bs-parent="#accordionPanelsStayOpenExample">
+            <div class="accordion-body">
+                {{ articles["content"][count] }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
