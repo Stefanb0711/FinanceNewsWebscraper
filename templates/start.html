@@ -12,6 +12,7 @@
 
 
 <div style="align-items: center; width: 700px; margin: auto; " class="accordion" id="accordionPanelsStayOpenExample">
+
     <h3 style="color:antiquewhite; padding-bottom: 20px; "> {{ share_name }} </h3>
 
     {% for count in range(articles["title"]|length) %}
@@ -27,7 +28,9 @@
             </div>
         </div>
     </div>
+
     {% endfor %}
+
 </div>
 
 {% endblock %}
